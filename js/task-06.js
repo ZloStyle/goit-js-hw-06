@@ -12,13 +12,29 @@
 // }
 
 // inputEl.addEventListener('blur', checkValueLength)
-// // console.log(checkValueLength)
+// console.log(checkValueLength)
 
-const inputField = document.getElementById('validation-input');
-const dataLength = inputField.getAttribute('data-length');
-const inputLength = inputField.value.length;
+// const inputField = document.getElementById('validation-input');
+// const dataLength = inputField.getAttribute('data-length');
+// const inputLength = inputField.value.length;
 
-inputField.addEventListener('blur', () =>
-    inputLength === Number(dataLength)
-    ? inputField.classList.add('valid')
-    : inputField.classList.add('invalid'));
+// console.log(inputField)
+// console.log(dataLength)
+// console.log(inputLength)
+// inputField.addEventListener('blur', () =>
+//     inputLength === Number(dataLength)
+//     ? inputField.classList.add('valid')
+//     : inputField.classList.add('invalid'));
+
+
+
+const input = document.querySelector('#validation-input');
+const inputLength = input.dataset.length; 
+input.addEventListener('blur', (evt) => {
+    input.classList.remove('valid' , 'invalid'); 
+    if (evt.currentTarget.value.length !== Number(inputLength)) {
+        input.classList.add('invalid');
+    } else {
+        input.classList.add('valid')
+    }
+});

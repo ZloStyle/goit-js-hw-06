@@ -13,5 +13,5 @@ function handlerSubmit(evt) {
         };
         console.log(info);
     }
+    inputField.reset()
 }
-inputField.reset()
